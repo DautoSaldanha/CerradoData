@@ -1,0 +1,222 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}Cerrado Data | Projetos e Tecnologia{% endblock %}
+    </title>
+
+    <meta
+        name="description"
+        content="Cerrado Data — organização que reúne e apresenta projetos desenvolvidos em tecnologia, sistemas, automação e dados."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+
+</head>
+
+<body>
+
+    <header class="header" id="header">
+
+        <div class="container header__content">
+
+            <a
+                href="{% url 'home' %}#inicio"
+                class="logo"
+            >
+
+                <span class="logo__symbol">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+
+                <span class="logo__text">
+                    Cerrado <strong>Data</strong>
+                </span>
+
+            </a>
+
+
+            <nav
+                class="nav"
+                id="nav"
+            >
+
+                <a
+                    href="{% url 'home' %}#inicio"
+                    class="nav__link active"
+                >
+                    Início
+                </a>
+
+                <a
+                    href="{% url 'home' %}#solucoes"
+                    class="nav__link"
+                >
+                    Áreas
+                </a>
+
+                <a
+                    href="{% url 'home' %}#sobre"
+                    class="nav__link"
+                >
+                    Sobre
+                </a>
+
+                <a
+                    href="{% url 'home' %}#projetos"
+                    class="nav__link"
+                >
+                    Projetos
+                </a>
+
+                <a
+                    href="{% url 'home' %}#contato"
+                    class="nav__link"
+                >
+                    Contato
+                </a>
+
+                <a
+                    href="{% url 'home' %}#contato"
+                    class="button button--small"
+                >
+                    Fale conosco
+                    <span>→</span>
+                </a>
+
+            </nav>
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                type="button"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="container footer__content">
+
+            <a
+                href="{% url 'home' %}#inicio"
+                class="logo"
+            >
+
+                <span class="logo__symbol">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+
+                <span class="logo__text">
+                    Cerrado <strong>Data</strong>
+                </span>
+
+            </a>
+
+
+            <p>
+                Projetos que geram possibilidades.
+            </p>
+
+
+            <div class="footer__social">
+
+                <a
+                    href="#"
+                    aria-label="Instagram"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/dauto-saldanha/"
+                    aria-label="LinkedIn"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://github.com/DautoSaldanha"
+                    aria-label="GitHub"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer__bottom">
+
+            <span>
+                © 2026 Cerrado Data.
+                Todos os direitos reservados.
+            </span>
+
+            <span>
+                Brasília — DF
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>

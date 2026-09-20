@@ -1,0 +1,50 @@
+{% extends "base/base.html" %}
+
+{% block title %}Projetos | Cerrado Data{% endblock %}
+
+{% block content %}
+<section class="projects" id="projetos">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Nossos projetos</p>
+                <h1>Projetos que se tornam <span>realidade.</span></h1>
+            </div>
+            <p>
+                Conheça os projetos, sistemas e soluções desenvolvidos pela
+                Cerrado Data e seus colaboradores.
+            </p>
+        </div>
+
+        {% if projetos %}
+            <div class="projects__grid">
+                {% for projeto in projetos %}
+                    <article class="project">
+                        <div class="project__image project__image--dynamic">
+                            {% if projeto.imagem_capa %}
+                                <img
+                                    src="{{ projeto.imagem_capa.url }}"
+                                    alt="Imagem de capa de {{ projeto.titulo }}"
+                                    class="project__cover"
+                                >
+                            {% else %}
+                                <span class="project__placeholder">{{ projeto.titulo|first|upper }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="project__content">
+                            <span>{{ projeto.categoria }}</span>
+                            <h2>{{ projeto.titulo }}</h2>
+                            <p>{{ projeto.resumo }}</p>
+                            <a href="{{ projeto.get_absolute_url }}">Visitar projeto →</a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="projects__empty">
+                <p>Nenhum projeto publicado no momento.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

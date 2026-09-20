@@ -1,0 +1,537 @@
+{% extends "base/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+<!-- =========================================================
+     HERO
+========================================================== -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero__background"></div>
+    <div class="hero__overlay"></div>
+
+    <div class="container hero__content">
+
+        <div class="hero__text">
+
+            <p class="eyebrow">
+                Projetos que transformam ideias
+                <br>
+                em tecnologia
+            </p>
+
+            <h1>
+                Projetos que transformam
+                <br>
+                ideias em
+                <span>
+                    soluções e tecnologia.
+                </span>
+            </h1>
+
+            <p class="hero__description">
+                A Cerrado Data reúne projetos desenvolvidos em
+                tecnologia, sistemas, automação e dados,
+                transformando ideias em soluções funcionais
+                para diferentes necessidades.
+            </p>
+
+            <div class="hero__buttons">
+
+                <a
+                    href="#projetos"
+                    class="button"
+                >
+                    Conheça nossos projetos
+                    <span>→</span>
+                </a>
+
+                <button
+                    class="video-button"
+                    id="presentationButton"
+                    type="button"
+                >
+                    <span class="video-button__icon">
+                        →
+                    </span>
+
+                    Conheça a Cerrado Data
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ÁREAS
+========================================================== -->
+
+<section
+    class="services"
+    id="solucoes"
+>
+
+    <div class="container services__grid">
+
+        <article class="service-card">
+
+            <div class="service-card__icon">
+                &lt;/&gt;
+            </div>
+
+            <h3>
+                Desenvolvimento
+                de sistemas
+            </h3>
+
+            <p>
+                Projetos de sistemas e aplicações
+                desenvolvidos para diferentes
+                necessidades.
+            </p>
+
+        </article>
+
+
+        <!-- <article class="service-card">
+
+            <div class="service-card__icon">
+                ◉
+            </div>
+
+            <h3>
+                Dados e bancos
+            </h3>
+
+            <p>
+                Projetos envolvendo organização,
+                armazenamento, processamento
+                e análise de dados.
+            </p>
+
+        </article> -->
+
+
+        <article class="service-card">
+
+            <div class="service-card__icon">
+                ⚙
+            </div>
+
+            <h3>
+                Automação
+            </h3>
+
+            <p>
+                Soluções desenvolvidas para
+                automatizar tarefas e processos
+                repetitivos.
+            </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+            <div class="service-card__icon">
+                ↗
+            </div>
+
+            <h3>
+                Integrações
+            </h3>
+
+            <p>
+                APIs, ferramentas e sistemas
+                conectados para criar soluções
+                mais completas.
+            </p>
+
+        </article>
+
+        <article class="service-card">
+
+            <div class="service-card__icon">
+                ♻
+            </div>
+
+            <h3>
+                Redes Sociais
+            </h3>
+
+            <p>
+                Criação, administração e integração de
+                perfis em redes sociais, com foco
+                em marketing digital e presença online.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SOBRE
+========================================================== -->
+
+<section
+    class="about"
+    id="sobre"
+>
+
+    <div class="container about__grid">
+
+        <div class="about__content">
+
+            <p class="eyebrow eyebrow--dark">
+                Sobre a Cerrado Data
+            </p>
+
+            <h2>
+                Ideias que ganham
+                <span>
+                    forma.
+                </span>
+            </h2>
+
+            <p>
+                A Cerrado Data é uma organização criada
+                para reunir, apresentar e dar visibilidade
+                a projetos desenvolvidos em tecnologia.
+            </p>
+
+            <p>
+                Reunimos trabalhos envolvendo sistemas,
+                automações, integrações, bancos de dados,
+                aplicações web e outras soluções digitais.
+            </p>
+
+            <p>
+                Mais do que apresentar resultados, buscamos
+                mostrar o processo de construção e as
+                possibilidades que a tecnologia oferece.
+            </p>
+
+            <a
+                href="#projetos"
+                class="button button--outline"
+            >
+                Explorar projetos
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <div class="about__visual">
+
+            <div class="data-card">
+
+                <div class="data-card__header">
+
+                    <span>
+                        CERRADO / DATA
+                    </span>
+
+                    <span class="status">
+                        ● ONLINE
+                    </span>
+
+                </div>
+
+
+                <div class="chart">
+
+                    <div class="chart__line"></div>
+
+                    <div class="chart__bars">
+
+                        <span style="height: 35%"></span>
+                        <span style="height: 50%"></span>
+                        <span style="height: 42%"></span>
+                        <span style="height: 70%"></span>
+                        <span style="height: 62%"></span>
+                        <span style="height: 85%"></span>
+                        <span style="height: 95%"></span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="data-card__footer">
+
+                    <div>
+
+                        <small>
+                            PROJETOS
+                        </small>
+
+                        <strong>
+                            +∞
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <small>
+                            TECNOLOGIA
+                        </small>
+
+                        <strong>
+                            100%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJETOS EM DESTAQUE
+========================================================== -->
+<section class="projects" id="projetos">
+    <div class="container">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Nossos projetos</p>
+                <h2>Ideias que se tornam <span>realidade.</span></h2>
+            </div>
+            <p>
+                Conheça alguns dos projetos, sistemas e soluções desenvolvidos
+                pela Cerrado Data e seus colaboradores.
+            </p>
+        </div>
+
+        {% if projetos %}
+            <div class="projects__grid">
+                {% for projeto in projetos %}
+                    <article class="project">
+                        <div class="project__image project__image--dynamic">
+                            {% if projeto.imagem_capa %}
+                                <img src="{{ projeto.imagem_capa.url }}" alt="Imagem de capa de {{ projeto.titulo }}" class="project__cover">
+                            {% else %}
+                                <span class="project__placeholder">{{ projeto.titulo|first|upper }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="project__content">
+                            <span>{{ projeto.categoria }}</span>
+                            <h3>{{ projeto.titulo }}</h3>
+                            <p>{{ projeto.resumo }}</p>
+                            <a href="{{ projeto.get_absolute_url }}">Visitar projeto →</a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="projects__empty">
+                <p>Em breve, novos projetos estarão disponíveis.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+
+<!-- =========================================================
+     CTA / CONTATO
+========================================================== -->
+
+<section
+    class="cta"
+    id="contato"
+>
+
+    <div class="cta__glow"></div>
+
+    <div class="container cta__content">
+
+        <div>
+
+            <p class="eyebrow">
+                Entre em contato
+            </p>
+
+            <h2>
+                Vamos construir
+                <br>
+                algo
+                <span>
+                    melhor.
+                </span>
+            </h2>
+
+            <p>
+                Tem um projeto em mente, quer
+                apresentar seu trabalho ou deseja
+                colaborar com a Cerrado Data?
+            </p>
+
+        </div>
+
+
+        <form
+            class="contact-form"
+            id="contactForm"
+        >
+
+            <div class="form-group">
+
+                <label for="name">
+                    Nome
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Seu nome"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    E-mail
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="seu@email.com"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="message">
+                    Mensagem
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Como podemos ajudar?"
+                    rows="4"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="button button--full"
+            >
+                Enviar mensagem
+                <span>→</span>
+            </button>
+
+            <p
+                class="form-message"
+                id="formMessage"
+            ></p>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MODAL — CONHEÇA A CERRADO DATA
+========================================================== -->
+
+<div
+    class="modal presentation-modal"
+    id="presentationModal"
+    aria-hidden="true"
+>
+
+    <div class="modal__content presentation-modal__content">
+
+        <button
+            class="modal__close"
+            id="closePresentationModal"
+            aria-label="Fechar"
+            type="button"
+        >
+            ×
+        </button>
+
+
+        <div class="presentation-modal__icon">
+            CD
+        </div>
+
+
+        <p class="eyebrow">
+            CERRADO DATA
+        </p>
+
+
+        <h3>
+            Ideias que ganham
+            <span>
+                forma.
+            </span>
+        </h3>
+
+
+        <p>
+            A Cerrado Data é uma organização voltada
+            à criação, reunião e apresentação de projetos
+            desenvolvidos em tecnologia.
+        </p>
+
+
+        <p>
+            Sistemas, automações, aplicações, APIs,
+            bancos de dados e outras soluções fazem
+            parte do nosso universo de projetos.
+        </p>
+
+
+        <a
+            href="#projetos"
+            class="button"
+            id="presentationProjectsLink"
+        >
+            Explorar projetos
+            <span>
+                →
+            </span>
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
