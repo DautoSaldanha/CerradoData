@@ -1,0 +1,100 @@
+{% extends "base/base.html" %}
+
+{% block title %}{{ projeto.titulo }} | Cerrado Data{% endblock %}
+
+{% block content %}
+<main class="project-detail">
+    <div class="container">
+        <a class="project-detail__back" href="{% url 'projetos' %}">← Voltar para projetos</a>
+
+        <div class="project-detail__header">
+            <p class="eyebrow">{{ projeto.categoria }}</p>
+            <h1>{{ projeto.titulo }}</h1>
+            <p class="project-detail__summary">{{ projeto.resumo }}</p>
+        </div>
+
+        {% if projeto.imagem_capa %}
+            <div class="project-detail__cover">
+                <img src="{{ projeto.imagem_capa.url }}" alt="Imagem de capa de {{ projeto.titulo }}">
+            </div>
+        {% endif %}
+
+        <div class="project-detail__layout">
+            <div class="project-detail__body">
+                <section class="project-detail__section">
+                    <p class="eyebrow">Sobre o projeto</p>
+                    <div class="project-detail__description">{{ projeto.descricao|linebreaks }}</div>
+                </section>
+
+                {% if projeto.tecnologias %}
+                    <section class="project-detail__section">
+                        <p class="eyebrow">Tecnologias</p>
+                        <div class="project-detail__tags">
+                            {% for tecnologia in projeto.lista_tecnologias %}
+                                <span>{{ tecnologia }}</span>
+                            {% endfor %}
+                        </div>
+                    </section>
+                {% endif %}
+
+                {% if projeto.participacoes.all %}
+                    <section class="project-detail__section">
+                        <p class="eyebrow">Equipe</p>
+                        <div class="team-grid">
+                            {% for participacao in projeto.participacoes.all %}
+                                {% if participacao.membro.ativo %}
+                                    <article class="team-card">
+                                        {% if participacao.membro.foto %}
+                                            <img src="{{ participacao.membro.foto.url }}" alt="Foto de {{ participacao.membro.nome_completo }}">
+                                        {% else %}
+                                            <div class="team-card__placeholder">{{ participacao.membro.nome|first|upper }}</div>
+                                        {% endif %}
+                                        <div class="team-card__content">
+                                            <h3>{{ participacao.membro.nome_completo }}</h3>
+                                            <strong>{{ participacao.funcao }}</strong>
+                                            {% if participacao.descricao %}
+                                                <p>{{ participacao.descricao }}</p>
+                                            {% elif participacao.membro.bio %}
+                                                <p>{{ participacao.membro.bio }}</p>
+                                            {% endif %}
+                                            <div class="team-card__links">
+                                                {% if participacao.membro.github %}<a href="{{ participacao.membro.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>{% endif %}
+                                                {% if participacao.membro.linkedin %}<a href="{{ participacao.membro.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>{% endif %}
+                                                {% if participacao.membro.instagram %}<a href="{{ participacao.membro.instagram }}" target="_blank" rel="noopener noreferrer">Instagram</a>{% endif %}
+                                            </div>
+                                        </div>
+                                    </article>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </section>
+                {% endif %}
+            </div>
+
+            <aside class="project-detail__aside">
+                <div class="project-detail__meta">
+                    {% if projeto.cliente %}<div><small>Cliente</small><strong>{{ projeto.cliente }}</strong></div>{% endif %}
+                    {% if projeto.ano %}<div><small>Ano</small><strong>{{ projeto.ano }}</strong></div>{% endif %}
+                    {% if projeto.url_projeto %}
+                        <a class="button" href="{{ projeto.url_projeto }}" target="_blank" rel="noopener noreferrer">Visitar projeto <span>→</span></a>
+                    {% endif %}
+                </div>
+            </aside>
+        </div>
+
+        {% if projeto.imagens.all %}
+            <section class="project-detail__section project-detail__gallery-section">
+                <p class="eyebrow">Galeria</p>
+                <div class="project-gallery">
+                    {% for imagem in projeto.imagens.all %}
+                        <figure>
+                            <img src="{{ imagem.imagem.url }}" alt="{{ imagem.legenda|default:projeto.titulo }}">
+                            {% if imagem.legenda %}<figcaption>{{ imagem.legenda }}</figcaption>{% endif %}
+                        </figure>
+                    {% endfor %}
+                </div>
+            </section>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
