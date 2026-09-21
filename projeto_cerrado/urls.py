@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 from aplicacao_cerrado import views
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -17,3 +18,7 @@ urlpatterns = [
     path('gestao/membros/<int:pk>/editar/', views.gestao_membro_form, name='gestao_membro_editar'),
     path('gestao/membros/<int:pk>/remover/', views.gestao_membro_remover, name='gestao_membro_remover'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
