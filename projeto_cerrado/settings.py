@@ -19,7 +19,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.1.0.1', '.vercel.app']
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "cerrado-data-dautosaldanhas-projects.vercel.app",
+]
 
 
 # Application definition
@@ -75,7 +79,7 @@ WSGI_APPLICATION = 'projeto_cerrado.wsgi.app'
 #     }
 # }
  
- 
+
 
 if os.environ.get('VERCEL'):
     # Produção (Vercel) — Postgres/Neon
