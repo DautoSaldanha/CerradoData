@@ -1,0 +1,62 @@
+{% extends "base/base.html" %}
+
+{% block title %}Gestão | Cerrado Data{% endblock %}
+
+{% block content %}
+<head>
+    <style>
+        .button.button--outline {
+                color: white;
+            }
+    </style>
+</head>
+<section class="management">
+    <div class="container">
+        <div class="management-heading">
+            <div><p class="eyebrow">Cerrado Data</p><h1>Gestão do portfólio</h1></div>
+            <a class="button button--small" href="{% url 'gestao_logout' %}">Sair</a>
+        </div>
+
+        {% for message in messages %}<p class="management-message">{{ message }}</p>{% endfor %}
+
+        <div class="management-toolbar">
+            <a class="button" href="{% url 'gestao_projeto_novo' %}">Novo projeto <span>+</span></a>
+            <a class="button button--outline" href="{% url 'gestao_membro_novo' %}">Novo membro <span>+</span></a>
+        </div>
+
+        <div class="management-section">
+            <h2>Projetos</h2>
+            <div class="management-table">
+                {% for projeto in projetos %}
+                    <div class="management-row">
+                        <div><strong>{{ projeto.titulo }}</strong><small>{{ projeto.categoria }} · {% if projeto.publicado %}Publicado{% else %}Rascunho{% endif %}</small></div>
+                        <div class="management-actions">
+                            <a href="{% url 'gestao_projeto_editar' projeto.pk %}">Editar</a>
+                            <form method="post" action="{% url 'gestao_projeto_remover' projeto.pk %}" onsubmit="return confirm('Remover este projeto?');">
+                                {% csrf_token %}<button type="submit">Remover</button>
+                            </form>
+                        </div>
+                    </div>
+                {% empty %}<p>Nenhum projeto cadastrado.</p>{% endfor %}
+            </div>
+        </div>
+
+        <div class="management-section">
+            <h2>Membros</h2>
+            <div class="management-table">
+                {% for membro in membros %}
+                    <div class="management-row">
+                        <div><strong>{{ membro.nome_completo }}</strong><small>{{ membro.cargo|default:"Cargo não informado" }}</small></div>
+                        <div class="management-actions">
+                            <a href="{% url 'gestao_membro_editar' membro.pk %}">Editar</a>
+                            <form method="post" action="{% url 'gestao_membro_remover' membro.pk %}" onsubmit="return confirm('Remover este membro?');">
+                                {% csrf_token %}<button type="submit">Remover</button>
+                            </form>
+                        </div>
+                    </div>
+                {% empty %}<p>Nenhum membro cadastrado.</p>{% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

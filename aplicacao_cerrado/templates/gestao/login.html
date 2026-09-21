@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+
+{% block title %}Acesso restrito | Cerrado Data{% endblock %}
+
+{% block content %}
+<section class="management management--login">
+    <div class="management-card">
+        <p class="eyebrow">Área restrita</p>
+        <h1>Entrar na gestão</h1>
+        {% for message in messages %}<p class="management-message">{{ message }}</p>{% endfor %}
+        <form method="post" class="management-form">
+            {% csrf_token %}
+            <label>Usuário<input class="management-form__input" type="text" name="username" required autofocus></label>
+            <label>Senha<input class="management-form__input" type="password" name="password" required></label>
+            <button class="button" type="submit">Entrar <span>→</span></button>
+        </form>
+    </div>
+</section>
+{% endblock %}

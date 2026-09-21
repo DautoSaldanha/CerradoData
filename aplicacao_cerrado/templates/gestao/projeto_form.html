@@ -1,0 +1,44 @@
+{% extends "base/base.html" %}
+
+{% block title %}{% if projeto %}Editar{% else %}Novo{% endif %} projeto | Cerrado Data{% endblock %}
+
+{% block content %}
+<section class="management">
+    <div class="container management-narrow">
+        <a class="project-detail__back" href="{% url 'gestao_dashboard' %}">← Voltar para gestão</a>
+        <h1>{% if projeto %}Editar projeto{% else %}Novo projeto{% endif %}</h1>
+        <form method="post" enctype="multipart/form-data" class="management-form">
+            {% csrf_token %}
+            {% if form.non_field_errors %}{{ form.non_field_errors }}{% endif %}
+            {% for field in form %}
+                <label{% if field.errors %} class="has-error"{% endif %}>{{ field.label }}{{ field }}{% for error in field.errors %}<small>{{ error }}</small>{% endfor %}</label>
+            {% endfor %}
+
+            <div class="management-subform">
+                <h2>Equipe do projeto</h2>
+                {{ participacoes.management_form }}
+                {% for inline_form in participacoes %}
+                    <div class="management-inline">
+                        {% for field in inline_form.visible_fields %}<label>{{ field.label }}{{ field }}</label>{% endfor %}
+                        {% for field in inline_form.hidden_fields %}{{ field }}{% endfor %}
+                        {% if inline_form.instance.pk %}<label class="management-checkbox">{{ inline_form.DELETE }} Remover participação</label>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="management-subform">
+                <h2>Galeria</h2>
+                {{ imagens.management_form }}
+                {% for inline_form in imagens %}
+                    <div class="management-inline">
+                        {% for field in inline_form.visible_fields %}<label>{{ field.label }}{{ field }}</label>{% endfor %}
+                        {% for field in inline_form.hidden_fields %}{{ field }}{% endfor %}
+                        {% if inline_form.instance.pk %}<label class="management-checkbox">{{ inline_form.DELETE }} Remover imagem</label>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="button" type="submit">Salvar projeto <span>→</span></button>
+        </form>
+    </div>
+</section>
+{% endblock %}
