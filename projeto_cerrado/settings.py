@@ -74,7 +74,8 @@ WSGI_APPLICATION = 'projeto_cerrado.wsgi.app'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
+ 
+ 
 
 if os.environ.get('VERCEL'):
     # Produção (Vercel) — Postgres/Neon
