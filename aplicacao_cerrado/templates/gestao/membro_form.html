@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+
+{% block title %}{% if membro %}Editar{% else %}Novo{% endif %} membro | Cerrado Data{% endblock %}
+
+{% block content %}
+<section class="management">
+    <div class="container management-narrow">
+        <a class="project-detail__back" href="{% url 'gestao_dashboard' %}">← Voltar para gestão</a>
+        <h1>{% if membro %}Editar membro{% else %}Novo membro{% endif %}</h1>
+        <form method="post" enctype="multipart/form-data" class="management-form">
+            {% csrf_token %}
+            {% for field in form %}
+                <label>{{ field.label }}{{ field }}{% for error in field.errors %}<small>{{ error }}</small>{% endfor %}</label>
+            {% endfor %}
+            <button class="button" type="submit">Salvar membro <span>→</span></button>
+        </form>
+    </div>
+</section>
+{% endblock %}
